@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>want to be dealer</title>
+</head>
+<style>
+    textarea {
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+    }
+    h1{
+        text-shadow: 0 0 3px #f88315, 0 0 5px #4c4cc3;
+        font-family: 'georgia';
+    }
+
+    
+    
+
+    form {
+        background-color: dimgray;
+        width:530px;
+        margin: 10px;
+        border: 2px solid black;
+        box-shadow: 10px 10px gray;
+    }
+
+    input {
+        /* background-color: brown; */
+        /* color: white; */
+        /* border-radius: 18px; */
+        width: 280px;
+        margin: 20px;
+        padding: 10px;
+    }
+    input[type=submit] {
+        background-color: rgb(160, 11, 14);
+        color: white;
+        border-radius: 18px;
+        margin: 10px;
+        box-shadow: 4px rgb(240, 130, 130);
+        width: 90px;;
+}
+</style>
+<script>
+    
+</script>
+
+
+
+<body>
+    <div class="sample1">
+        
+        <center><form action="/form1" method="post">
+            {% csrf_token %}
+            <center>
+                <h1>Fill The Given Details</h1>
+            </center>
+            <table>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name" placeholder="Enter your name" id="" pattern="[A-Z a-z]+" title="charecter only"></td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><input type="text" name="add" placeholder="Enter your Address" id=""></td>
+                </tr>
+                <!-- <tr>
+                    <td><label>Phone Number:</label></td>
+                    <td><input type="number" name="num" placeholder="Enter your phone number" id=""></td>
+                </tr> -->
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="email" name="email" placeholder="Enter your email" id=""></td>
+                </tr>
+                <tr>
+                    <td><label>Product Name:</label></td>
+                    <td><input type="text" name="pname" placeholder="Enter your product name" id=""></td>
+                </tr>
+                <tr>
+                    <td><label>Product Type:</label></td>
+                    <td><input type="text" name="ptype" placeholder="(Organic Or Chemical)" id="" pattern="[A-Z a-z ]+" title="charecter only"></td>
+                </tr>
+                <tr>
+                    <!-- <td><label>About Product:</label></td><td><input type="text" name=""placeholder="Write About Product" id=""></td> -->
+                    <td><label>About Product:</label></td>
+                    <td><textarea name="textarea" id="textarea" placeholder="About product"   cols="30" rows="10"></textarea></td>
+                </tr><br>
+            </table>
+            <center><input type="submit" value="SAVE "></center>
+        </form></center>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find dealers</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        /* border: 2px solid green; */
+        text-align: center;
+    }
+
+    body {
+        background-image: url("/static/img8.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        color: green;
+        font-family: 'georgia';
+    }
+</style>
+
+<body>
+
+    <center>
+        <div class="tab1">
+            <h1>Find Dealers</h1>
+
+            {% for i in hh %}
+            <table border="9" style="width:70%;" cellspacing="3px" cellpadding="3px">
+                <thead>
+
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.product}}</td>
+                        <td>{{i.type}}</td>
+                        <td>{{i.doc}}</td>
+
+                    </tr>
+                </thead>
+            </table>
+            {% endfor %}
+
+        </div>
+    </center>
+
+</body>
+
+</html>
+{% endblock content %}
