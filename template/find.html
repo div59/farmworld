@@ -13,7 +13,7 @@
     table,
     th,
     td {
-        /* border: 2px solid green; */
+        border: 2px solid rgb(8, 8, 8);
         text-align: center;
     }
 
@@ -37,10 +37,23 @@
     <center>
         <div class="tab1">
             <h1>Find Dealers</h1>
-
-            {% for i in hh %}
-            <table border="9" style="width:70%;" cellspacing="3px" cellpadding="3px">
+            <table border="5" style="width:70%;" cellspacing="3px" cellpadding="3px">
                 <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>ADDRESS</th>
+                        <th>PRODUCT NAME</th>
+                        <th>TYPE OF PRODUCT</th>
+                        <th>DESCRIPTION OF PRODUCT</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+    
+            {% for i in hh %}
+            
 
                     <tr>
                         <td>{{i.id}}</td>
@@ -52,9 +65,9 @@
                         <td>{{i.doc}}</td>
 
                     </tr>
-                </thead>
-            </table>
             {% endfor %}
+                </tbody>
+            </table>
 
         </div>
     </center>
