@@ -18,7 +18,7 @@
         background-color: #f8f8f8;
         resize: none;
     }
-    h1{
+    h2{
         text-shadow: 0 0 3px #f88315, 0 0 5px #4c4cc3;
         font-family: 'georgia';
     }
@@ -26,12 +26,27 @@
     
     
 
-    form {
+    /* form {
         background-color: dimgray;
         width:530px;
         margin: 10px;
         border: 2px solid black;
         box-shadow: 10px 10px gray;
+    } */
+    form {
+      border: 3px solid #f1f1f1;
+      width: 40%;
+      background-color: dimgray;
+      box-shadow: 10px 10px rgb(225, 221, 221);
+      opacity: 0;
+      animation: gogol 3s linear forwards;
+    }
+
+    @keyframes gogol {
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     input {
@@ -51,9 +66,7 @@
         width: 90px;;
 }
 </style>
-<script>
-    
-</script>
+
 
 
 
@@ -63,7 +76,7 @@
         <center><form action="/form1" method="post">
             {% csrf_token %}
             <center>
-                <h1>Fill The Given Details</h1>
+                <h2>Fill The Given Details</h2>
             </center>
             <table>
                 <tr>

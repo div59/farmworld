@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+from django.contrib.auth import authenticate
 from .models import farmer
 
 def home(request):
@@ -30,4 +31,43 @@ def form1(request):
 def find(request):
     e=farmer.objects.all()
     return render(request,'find.html',{'hh':e})
+
+def register(request):
+    return render(request,"register.html")
+def login(request):
+    return render(request,"login.html")
+
+def filllogin(request):
+    if request.method=="POST":
+        user=auth.authenticate(username=request.POST['uname'],password=request.POST["psw"])
+        if user is not None:
+            auth.login(request,user)
+            return redirect("/")
+        else:
+            messages.error(request,"Please enter valid details")
+            return render(request,"login.html")
+    else:
+
+        return render(request,"login.html")
+
+def fillregister(request):
+    if request.method=="POST":
+        if User.objects.filter(username=request.POST["uname"]).exists():
+            messages.error(request,"Username already exist")
+            return render(request,"register.html")
+        if User.objects.filter(email=request.POST["email"]).exists():
+            messages.error(request,"Email already exist")
+            return render(request,"register.html")
+        if(request.POST["psw1"]!=request.POST["psw2"]):
+            messages.error(request,"Pls repeat the password correctly")
+            return render(request,"register.html")
+        
+        x=User.objects.create_user(username=request.POST["uname"],email=request.POST["email"],first_name=request.POST["fname"],last_name=request.POST["lname"],password=request.POST["psw1"])
+        messages.success(request,"Hurray .... Successfull Registered to Farmword!")
+        return render(request,"login.html")
+
+def logout(request):
+    auth.logout(request)
+    return redirect("/")
+
         

@@ -16,5 +16,10 @@ urlpatterns = [
     path('find',views.find,name='find'),
     path('cont',views.cont,name='cont'),
     path('form1',views.form1,name='form1'),
+    path("register", views.register,name="register"),
+    path("login", views.login,name="login"),
+    path("fillregister",views.fillregister,name="fillregister"),
+    path("logout", views.logout,name="logout"),
+    path("filllogin", views.filllogin,name="filllogin"),
     
 ]
